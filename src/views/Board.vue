@@ -1,12 +1,25 @@
 <template>
   <div class="board">
 
+    <div class="flex flex-row items-start">
+      <div
+        class="column"
+        v-for="(column, $columnIndex) of board.columns"
+        :key="$columnIndex">
+        <div class="flex- items-center mb-2 font-bold">
+          {{ column.name }}
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-export default {
+import { mapState } from 'vuex'
 
+export default {
+  computed: mapState(['board'])
 }
 </script>
 
@@ -18,6 +31,10 @@ export default {
 .column {
   @apply bg-grey-light p-2 mr-4 text-left shadow rounded;
   min-width: 350px;
+}
+
+.column:last-child {
+  margin-right: 0px;
 }
 
 .board {

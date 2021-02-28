@@ -9,6 +9,7 @@
 
 body, html {
   height: 100%;
+  min-width: fit-content;
 }
 
 #app {
